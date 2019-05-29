@@ -13,5 +13,6 @@ namespace NBAApi.Data
         {
         }
         public DbSet<NBAApi.Data.Models.Team> Team { get; set; }
+        public DbSet<NBAApi.Data.Models.Standings> Standings { get; set; }
     }
 }

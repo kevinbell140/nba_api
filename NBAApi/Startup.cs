@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using NBAApi.Data;
+using NBAApi.Services;
 
 namespace NBAApi
 {
@@ -29,8 +30,14 @@ namespace NBAApi
         {
             services.AddDbContext<ApplicationDBContext>(opt =>
                 opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddXmlSerializerFormatters()
+                .AddJsonOptions(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddScoped<TeamService>();
+            services.AddScoped<StandingsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

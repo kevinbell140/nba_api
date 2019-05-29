@@ -24,7 +24,7 @@ namespace NBAApi.Data.Models
         public string TertiaryColor { get; set; }
         public string WikipediaLogoUrl { get; set; }
 
-        public DateTime TimeStamp { get; set; } = DateTime.Now;
+        public DateTime TimeStamp { get; set; }
 
         [Display(Name = "Team")]
         public string FullName
@@ -35,13 +35,13 @@ namespace NBAApi.Data.Models
             }
         }
 
-        public virtual ICollection<Player> PlayersNav { get; set; }
+        //public virtual ICollection<Player> PlayersNav { get; set; }
 
-        [InverseProperty("HomeTeamNav")]
-        public virtual ICollection<Game> HomeGamesNav { get; set; }
+        //[InverseProperty("HomeTeamNav")]
+        //public virtual ICollection<Game> HomeGamesNav { get; set; }
 
-        [InverseProperty("AwayTeamNav")]
-        public virtual ICollection<Game> AwayGamesNav { get; set; }
+        //[InverseProperty("AwayTeamNav")]
+        //public virtual ICollection<Game> AwayGamesNav { get; set; }
 
         public virtual Standings RecordNav { get; set; }
 
