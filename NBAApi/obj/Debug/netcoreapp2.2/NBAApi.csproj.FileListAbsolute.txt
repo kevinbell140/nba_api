@@ -1,0 +1,14 @@
+C:\Users\kebell\source\repos\NBAApi\NBAApi\bin\Debug\netcoreapp2.2\NBAApi.deps.json
+C:\Users\kebell\source\repos\NBAApi\NBAApi\bin\Debug\netcoreapp2.2\NBAApi.runtimeconfig.json
+C:\Users\kebell\source\repos\NBAApi\NBAApi\bin\Debug\netcoreapp2.2\NBAApi.runtimeconfig.dev.json
+C:\Users\kebell\source\repos\NBAApi\NBAApi\bin\Debug\netcoreapp2.2\NBAApi.dll
+C:\Users\kebell\source\repos\NBAApi\NBAApi\bin\Debug\netcoreapp2.2\NBAApi.pdb
+C:\Users\kebell\source\repos\NBAApi\NBAApi\obj\Debug\netcoreapp2.2\NBAApi.csprojAssemblyReference.cache
+C:\Users\kebell\source\repos\NBAApi\NBAApi\obj\Debug\netcoreapp2.2\NBAApi.csproj.CoreCompileInputs.cache
+C:\Users\kebell\source\repos\NBAApi\NBAApi\obj\Debug\netcoreapp2.2\NBAApi.RazorAssemblyInfo.cache
+C:\Users\kebell\source\repos\NBAApi\NBAApi\obj\Debug\netcoreapp2.2\NBAApi.RazorAssemblyInfo.cs
+C:\Users\kebell\source\repos\NBAApi\NBAApi\obj\Debug\netcoreapp2.2\NBAApi.AssemblyInfoInputs.cache
+C:\Users\kebell\source\repos\NBAApi\NBAApi\obj\Debug\netcoreapp2.2\NBAApi.AssemblyInfo.cs
+C:\Users\kebell\source\repos\NBAApi\NBAApi\obj\Debug\netcoreapp2.2\NBAApi.RazorTargetAssemblyInfo.cache
+C:\Users\kebell\source\repos\NBAApi\NBAApi\obj\Debug\netcoreapp2.2\NBAApi.dll
+C:\Users\kebell\source\repos\NBAApi\NBAApi\obj\Debug\netcoreapp2.2\NBAApi.pdb
