@@ -37,7 +37,7 @@ namespace NBAApi.Services
         {
             var stats = await _context.PlayerSeasonStats
                 .Include(x => x.PlayNav)
-                .Where(x => x.PlayNav.FullName == name)
+                .Where(x => x.PlayNav.FullName.ToLower().Contains(name.ToLower()))
                 .ToListAsync();
             return stats;
         }

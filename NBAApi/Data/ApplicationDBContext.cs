@@ -17,5 +17,6 @@ namespace NBAApi.Data
         public DbSet<NBAApi.Data.Models.Standings> Standings { get; set; }
         public DbSet<NBAApi.Data.Player> Player { get; set; }
         public DbSet<NBAApi.Data.Models.PlayerSeasonStats> PlayerSeasonStats { get; set; }
+        public DbSet<NBAApi.Data.Models.Game> Game { get; set; }
     }
 }
