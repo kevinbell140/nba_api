@@ -1,4 +1,5 @@
 ﻿using NBAApi.Data.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,10 +48,13 @@ namespace NBAApi.Data
 
         public virtual Team TeamNav { get; set; }
 
+        [JsonIgnore]
         public virtual PlayerSeasonStats StatsNav { get; set; }
 
+        [JsonIgnore]
         public virtual IEnumerable<PlayerGameStats> GameStatsNav { get; set; }
 
+        [JsonIgnore]
         public virtual IEnumerable<News> NewsNav { get; set; }
     }
     

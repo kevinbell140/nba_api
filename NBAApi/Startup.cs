@@ -41,6 +41,8 @@ namespace NBAApi
             services.AddScoped<PlayerService>();
             services.AddScoped<PlayerSeasonStatsService>();
             services.AddScoped<GameService>();
+            services.AddScoped<PlayerGameStatsService>();
+            services.AddScoped<NewsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
