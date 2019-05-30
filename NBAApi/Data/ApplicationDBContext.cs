@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using NBAApi.Data.Models;
+using NBAApi.Data;
 
 namespace NBAApi.Data
 {
@@ -14,5 +15,7 @@ namespace NBAApi.Data
         }
         public DbSet<NBAApi.Data.Models.Team> Team { get; set; }
         public DbSet<NBAApi.Data.Models.Standings> Standings { get; set; }
+        public DbSet<NBAApi.Data.Player> Player { get; set; }
+        public DbSet<NBAApi.Data.Models.PlayerSeasonStats> PlayerSeasonStats { get; set; }
     }
 }

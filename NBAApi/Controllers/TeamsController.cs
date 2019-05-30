@@ -32,7 +32,7 @@ namespace NBAApi.Controllers
 
         //GET: api/Teams/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Team>> GetTeam(int id)
+        public async Task<ActionResult<Team>> GetTeamAsync(int id)
         {
             var team = await _teamsService.GetTeamAsync(id);
 
@@ -42,6 +42,63 @@ namespace NBAApi.Controllers
             }
 
             return team;
+        }
+
+        //GET: api/Teams/ppg/5
+        [HttpGet("ppg/{id}")]
+        public async Task<ActionResult<Player>> GetPointsLeaderAsync(int id)
+        {
+            var leader = await _teamsService.GetPPGLeaderAsync(id);
+
+            if (leader == null)
+            {
+                return NotFound();
+            }
+
+            return leader;
+        }
+
+        //GET: api/Teams/apg/5
+        [HttpGet("apg/{id}")]
+        public async Task<ActionResult<Player>> GetAssistLeaderAsync(int id)
+        {
+            var leader = await _teamsService.GetAPGLeaderAsync(id);
+
+            if (leader == null)
+            {
+                return NotFound();
+            }
+
+            return leader;
+        }
+
+
+        //GET: api/Teams/rpg/5
+        [HttpGet("rpg/{id}")]
+        public async Task<ActionResult<Player>> GetReboundLeaderAsync(int id)
+        {
+            var leader = await _teamsService.GetRPGLeaderAsync(id);
+
+            if (leader == null)
+            {
+                return NotFound();
+            }
+
+            return leader;
+        }
+
+        //GET: api/Teams/roster/5
+        [HttpGet("roster/{id}")]
+        public async Task<ActionResult<IEnumerable<Player>>> GetRosterAsync(int id)
+        {
+            var leader = await _teamsService.GetRosterAsync(id);
+
+            if (leader == null)
+            {
+                return NotFound();
+            }
+
+            return leader.ToList();
         }
 
         //// PUT: api/Teams/5

@@ -20,8 +20,6 @@ namespace NBAApi.Services
         {
             var team = await _context.Team
                 .Where(t => t.TeamID == id)
-                //.Include(t => t.PlayersNav).ThenInclude(p => p.StatsNav)
-                //.Include(t => t.RecordNav)
                 .FirstOrDefaultAsync();
 
             return team;
@@ -57,68 +55,41 @@ namespace NBAApi.Services
             return teams;
         }
 
-        //public Player GetPPGLeader(List<Player> players)
-        //{
-        //    Player leader = players.Where(p => p.StatsNav != null)
-        //        .OrderByDescending(p => p.StatsNav.PPG)
-        //        .FirstOrDefault();
-        //    return leader;
-        //}
+        public async Task<Player> GetPPGLeaderAsync(int teamID)
+        {
+            Player leader = await _context.Player
+                .Where(p => p.StatsNav != null && p.TeamID == teamID)
+                .OrderByDescending(p => p.StatsNav.PPG)
+                .FirstOrDefaultAsync();
+            return leader;
+        }
 
-        //public Player GetRPGLeader(List<Player> players)
-        //{
-        //    Player leader = players.Where(p => p.StatsNav != null)
-        //        .OrderByDescending(p => p.StatsNav.RPG)
-        //        .FirstOrDefault();
-        //    return leader;
-        //}
+        public async Task<Player> GetRPGLeaderAsync(int teamID)
+        {
+            Player leader = await _context.Player
+                .Where(p => p.StatsNav != null && p.TeamID == teamID)
+                .OrderByDescending(p => p.StatsNav.RPG)
+                .FirstOrDefaultAsync();
+            return leader;
+        }
 
-        //public Player GetAPGLeader(List<Player> players)
-        //{
-        //    Player leader = players.Where(p => p.StatsNav != null)
-        //        .OrderByDescending(p => p.StatsNav.APG)
-        //        .FirstOrDefault();
-        //    return leader;
-        //}
+        public async Task<Player> GetAPGLeaderAsync(int teamID)
+        {
+            Player leader = await _context.Player
+                .Where(p => p.StatsNav != null && p.TeamID == teamID)
+                .OrderByDescending(p => p.StatsNav.APG)
+                .FirstOrDefaultAsync();
+            return leader;
+        }
 
-        //public IEnumerable<Player> SortRoster(List<Player> players, string sortOrder)
-        //{
-        //    List<Player> roster = new List<Player>();
-        //    switch (sortOrder)
-        //    {
-        //        case "pos_desc":
-        //            roster = players.Where(p => p.StatsNav != null).OrderByDescending(p => p.Position).ToList();
-        //            break;
-        //        case "Player":
-        //            roster = players.Where(p => p.StatsNav != null).OrderBy(p => p.LastName).ToList();
-        //            break;
-        //        case "player_desc":
-        //            roster = players.Where(p => p.StatsNav != null).OrderByDescending(p => p.LastName).ToList();
-        //            break;
-        //        case "PPG":
-        //            roster = players.Where(p => p.StatsNav != null).OrderBy(p => p.StatsNav.PPG).ToList();
-        //            break;
-        //        case "ppg_desc":
-        //            roster = players.Where(p => p.StatsNav != null).OrderByDescending(p => p.StatsNav.PPG).ToList();
-        //            break;
-        //        case "RPG":
-        //            roster = players.Where(p => p.StatsNav != null).OrderBy(p => p.StatsNav.RPG).ToList();
-        //            break;
-        //        case "rpg_desc":
-        //            roster = players.Where(p => p.StatsNav != null).OrderByDescending(p => p.StatsNav.RPG).ToList();
-        //            break;
-        //        case "APG":
-        //            roster = players.Where(p => p.StatsNav != null).OrderBy(p => p.StatsNav.APG).ToList();
-        //            break;
-        //        case "apg_desc":
-        //            roster = players.Where(p => p.StatsNav != null).OrderByDescending(p => p.StatsNav.APG).ToList();
-        //            break;
-        //        default:
-        //            roster = players.Where(p => p.StatsNav != null).OrderBy(p => p.Position).ToList();
-        //            break;
-        //    }
-        //    return roster;
-        //}
+        public async Task<IEnumerable<Player>> GetRosterAsync(int teamID)
+        {
+            var roster = await _context.Player
+                .Where(p => p.TeamID == teamID)
+                .OrderByDescending(p => p.Position)
+                .ToListAsync();
+            return roster;
+        }
 
         //public async Task FetchAsync()
         //{
