@@ -49,7 +49,7 @@ namespace NBAApi.Controllers
         {
             var news = await _service.GetNewsByPlayer(teamID);
 
-            if (news == null)
+            if (!news.Any())
             {
                 return NotFound();
             }

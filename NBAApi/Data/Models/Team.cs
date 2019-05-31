@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -27,6 +28,7 @@ namespace NBAApi.Data.Models
         public DateTime TimeStamp { get; set; }
 
         [Display(Name = "Team")]
+        [JsonIgnore]
         public string FullName
         {
             get
@@ -35,14 +37,18 @@ namespace NBAApi.Data.Models
             }
         }
 
-        //public virtual ICollection<Player> PlayersNav { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<Player> PlayersNav { get; set; }
 
-        //[InverseProperty("HomeTeamNav")]
-        //public virtual ICollection<Game> HomeGamesNav { get; set; }
+        [JsonIgnore]
+        [InverseProperty("HomeTeamNav")]
+        public virtual ICollection<Game> HomeGamesNav { get; set; }
 
-        //[InverseProperty("AwayTeamNav")]
-        //public virtual ICollection<Game> AwayGamesNav { get; set; }
+        [JsonIgnore]
+        [InverseProperty("AwayTeamNav")]
+        public virtual ICollection<Game> AwayGamesNav { get; set; }
 
+        [JsonIgnore]
         public virtual Standings RecordNav { get; set; }
 
     }

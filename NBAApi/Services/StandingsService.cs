@@ -16,14 +16,13 @@ namespace NBAApi.Services
         {
             _context = context;
         }
-        public async Task<List<Standings>> GetStandingsAsync(string conference)
+        public async Task<List<Standings>> GetStandingsAsync()
         {
             List<Standings> standings = new List<Standings>();
 
             standings = await _context.Standings
                 .Include(t => t.TeamNav)
-                .Where(t => t.TeamNav.Conference == conference)
-                .OrderBy(t => t.GamesBack)
+                .OrderBy(t => t.TeamNav.Conference).ThenBy(x => x.GamesBack)
                 .ToListAsync();
 
             return standings;
@@ -32,7 +31,6 @@ namespace NBAApi.Services
         public async Task<Standings> GetStandingAsync(int teamID)
         {
             var standings = await _context.Standings
-                .Include(t => t.TeamNav)
                 .Where(t => t.TeamID == teamID)
                 .FirstOrDefaultAsync();
 

@@ -20,17 +20,10 @@ namespace NBAApi.Services
         public async Task<IEnumerable<News>> GetNews()
         {
             return await _context.News
+                .Include(x => x.PlayerNav)
                 .OrderByDescending(x => x.Updated)
                 .ToListAsync();
         }
-
-        //public async Task<IEnumerable<News>> GetNewsByDate(int playerID)
-        //{
-        //    return await _context.News
-        //        .Where(x => x.PlayerID == playerID)
-        //        .OrderByDescending(x => x.Updated)
-        //        .ToListAsync();
-        //}
 
         public async Task<IEnumerable<News>> GetNewsByPlayer(int playerID)
         {

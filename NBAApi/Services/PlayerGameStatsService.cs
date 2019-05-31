@@ -28,6 +28,7 @@ namespace NBAApi.Services
         {
             return await _context.PlayerGameStats
                 .Include(x => x.PlayerNav)
+                .Include(x => x.GameNav)
                 .Where(x => x.PlayerID == playerID)
                 .OrderByDescending(x => x.Updated)
                 .ToListAsync();
@@ -36,6 +37,8 @@ namespace NBAApi.Services
         public async Task<IEnumerable<PlayerGameStats>> GetPlayerGameStatsByGame(int gameID)
         {
             return await _context.PlayerGameStats
+                .Include(x => x.PlayerNav)
+                .Include(x => x.GameNav)
                 .Where(x => x.GameID == gameID)
                 .OrderByDescending(x => x.PlayerNav.TeamID).ThenBy(x => x.PlayerID)
                 .ToListAsync();
@@ -44,6 +47,8 @@ namespace NBAApi.Services
         public async Task<PlayerGameStats> GetPlayerGameLog(int playerID, int gameID)
         {
             return await _context.PlayerGameStats
+                .Include(x => x.PlayerNav)
+                .Include(x => x.GameNav)
                 .Where(x => x.GameID == gameID && x.PlayerID == playerID)
                 .FirstOrDefaultAsync();
         }

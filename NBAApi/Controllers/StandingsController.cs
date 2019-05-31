@@ -24,13 +24,9 @@ namespace NBAApi.Controllers
 
         // GET: api/Standings
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Standings>>> GetStandings([FromQuery] string conference)
+        public async Task<ActionResult<IEnumerable<Standings>>> GetStandings()
         {
-            if(conference == null)
-            {
-                return BadRequest();
-            }
-            return (await _standingsService.GetStandingsAsync(conference)).ToList();
+            return (await _standingsService.GetStandingsAsync()).ToList();
         }
 
         //GET: api/Standings/5
@@ -46,80 +42,5 @@ namespace NBAApi.Controllers
 
             return standings;
         }
-
-        // //PUT: api/Standings/5
-        // [HttpPut("{id}")]
-        // public async Task<IActionResult> PutStandings(int id, Standings standings)
-        // {
-        //     if (id != standings.TeamID)
-        //     {
-        //         return BadRequest();
-        //     }
-
-        //     _context.Entry(standings).State = EntityState.Modified;
-
-        //     try
-        //     {
-        //         await _context.SaveChangesAsync();
-        //     }
-        //     catch (DbUpdateConcurrencyException)
-        //     {
-        //         if (!StandingsExists(id))
-        //         {
-        //             return NotFound();
-        //         }
-        //         else
-        //         {
-        //             throw;
-        //         }
-        //     }
-
-        //     return NoContent();
-        // }
-
-        // //POST: api/Standings
-        //[HttpPost]
-        // public async Task<ActionResult<Standings>> PostStandings(Standings standings)
-        // {
-        //     _context.Standings.Add(standings);
-        //     try
-        //     {
-        //         await _context.SaveChangesAsync();
-        //     }
-        //     catch (DbUpdateException)
-        //     {
-        //         if (StandingsExists(standings.TeamID))
-        //         {
-        //             return Conflict();
-        //         }
-        //         else
-        //         {
-        //             throw;
-        //         }
-        //     }
-
-        //     return CreatedAtAction("GetStandings", new { id = standings.TeamID }, standings);
-        // }
-
-        // //DELETE: api/Standings/5
-        // [HttpDelete("{id}")]
-        // public async Task<ActionResult<Standings>> DeleteStandings(int id)
-        // {
-        //     var standings = await _context.Standings.FindAsync(id);
-        //     if (standings == null)
-        //     {
-        //         return NotFound();
-        //     }
-
-        //     _context.Standings.Remove(standings);
-        //     await _context.SaveChangesAsync();
-
-        //     return standings;
-        // }
-
-        //private bool StandingsExists(int id)
-        //{
-        //    return _context.Standings.Any(e => e.TeamID == id);
-        //}
     }
 }

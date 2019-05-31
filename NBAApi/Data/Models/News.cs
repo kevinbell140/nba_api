@@ -11,6 +11,11 @@ namespace NBAApi.Data.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int NewsID { get; set; }
 
+        [ForeignKey("PlayerNav")]
+        public int PlayerID { get; set; }
+
+        public virtual Player PlayerNav { get; set; }
+
         public string Source { get; set; }
 
         public DateTime Updated { get; set; }
@@ -22,11 +27,6 @@ namespace NBAApi.Data.Models
         public string Url { get; set; }
 
         public string Author { get; set; }
-
-        [ForeignKey("PlayerNav")]
-        public int PlayerID { get; set; }
-
-        public virtual Player PlayerNav { get; set; }
 
         public DateTime TimeStamp { get; set; } = DateTime.Now;
     }

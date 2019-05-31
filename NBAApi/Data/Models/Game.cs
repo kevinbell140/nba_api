@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -23,9 +24,12 @@ namespace NBAApi.Data.Models
         [ForeignKey("HomeTeamNav")]
         public int? HomeTeamID { get; set; }
 
+        public virtual Team HomeTeamNav { get; set; }
 
         [ForeignKey("AwayTeamNav")]
         public int? AwayTeamID { get; set; }
+
+        public virtual Team AwayTeamNav { get; set; }
 
         public int? HomeTeamScore { get; set; }
 
@@ -45,10 +49,7 @@ namespace NBAApi.Data.Models
 
         public DateTime TimeStamp { get; set; } = DateTime.Now;
 
-        public virtual Team HomeTeamNav { get; set; }
-
-        public virtual Team AwayTeamNav { get; set; }
-
+        [JsonIgnore]
         public virtual IEnumerable<PlayerGameStats> PlayerGameStatsNav { get; set; }
     }
 }

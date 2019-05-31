@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -112,6 +113,7 @@ namespace NBAApi.Data.Models
 
         public DateTime TimeStamp { get; set; } = DateTime.Now;
 
+        [JsonIgnore]
         public virtual Team TeamNav { get; set; }
     }
 }

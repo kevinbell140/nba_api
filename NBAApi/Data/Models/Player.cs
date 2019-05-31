@@ -15,7 +15,10 @@ namespace NBAApi.Data
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int PlayerID { get; set; }
 
+        public int TeamID { get; set; }
+
         public string Status { get; set; }
+
         public int Jersey { get; set; } = 0;
 
         [DisplayName("Pos")]
@@ -42,10 +45,9 @@ namespace NBAApi.Data
 
         public string PhotoUrl { get; set; }
 
-        public int TeamID { get; set; }
-
         public DateTime TimeStamp { get; set; } = DateTime.Now;
 
+        [JsonIgnore]
         public virtual Team TeamNav { get; set; }
 
         [JsonIgnore]

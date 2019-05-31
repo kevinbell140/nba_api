@@ -16,8 +16,12 @@ namespace NBAApi.Data.Models
         [ForeignKey("PlayerNav")]
         public int PlayerID { get; set; }
 
+        public virtual Player PlayerNav { get; set; }
+
         [ForeignKey("GameNav")]
         public int GameID { get; set; }
+
+        public virtual Game GameNav { get; set; }
 
         public DateTime Updated { get; set; }
 
@@ -121,9 +125,5 @@ namespace NBAApi.Data.Models
                 return total;
             }
         }
-
-        public virtual Player PlayerNav { get; set; }
-
-        public virtual Game GameNav { get; set; }
     }
 }
