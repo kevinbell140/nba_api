@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NBAApi</name>
+    </assembly>
+    <members>
+        <member name="M:NBAApi.Controllers.TeamsController.GetTeams">
+            <summary>
+            Gets a list of NBA Teams
+            </summary>
+            <returns>IEnumerable Teams</returns>
+        </member>
+        <member name="M:NBAApi.Controllers.TeamsController.GetTeamAsync(System.Int32)">
+            <summary>
+            Gets a specific NBA team
+            </summary>
+            <param name="id">Team ID</param>
+            <returns>Team</returns>
+        </member>
+        <member name="M:NBAApi.Controllers.TeamsController.GetPointsLeaderAsync(System.Int32)">
+            <summary>
+            Gets a teams PPG leader
+            </summary>
+            <param name="id">Team ID</param>
+            <returns>Player</returns>
+        </member>
+        <member name="M:NBAApi.Controllers.TeamsController.GetAssistLeaderAsync(System.Int32)">
+            <summary>
+            Gets a teams APG leader
+            </summary>
+            <param name="id">Team ID</param>
+            <returns>Player</returns>
+        </member>
+        <member name="M:NBAApi.Controllers.TeamsController.GetReboundLeaderAsync(System.Int32)">
+            <summary>
+            Gets a teams RPG leader
+            </summary>
+            <param name="id">Team ID</param>
+            <returns>Player</returns>
+        </member>
+        <member name="M:NBAApi.Controllers.TeamsController.GetRosterAsync(System.Int32)">
+            <summary>
+            Gets a teams roster
+            </summary>
+            <param name="id">Team ID</param>
+            <returns>IEnumberable Players</returns>
+        </member>
+    </members>
+</doc>

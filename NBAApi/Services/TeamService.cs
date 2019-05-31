@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NBAApi.Data;
 using NBAApi.Data.Models;
 using System;
@@ -16,6 +17,12 @@ namespace NBAApi.Services
         {
             _context = context;
         }
+
+        public async Task<IEnumerable<Team>> GetTeamsAsync()
+        {
+            return await _context.Team.ToListAsync();
+        }
+
         public async Task<Team> GetTeamAsync(int id)
         {
             var team = await _context.Team
@@ -23,36 +30,6 @@ namespace NBAApi.Services
                 .FirstOrDefaultAsync();
 
             return team;
-        }
-
-        public async Task<IEnumerable<Team>> GetTeamsAsync(string sortOrder)
-        {
-            var teams = _context.Team.AsNoTracking();
-            if (teams != null && await teams.AnyAsync())
-            {
-                switch (sortOrder)
-                {
-                    case "city_desc":
-                        teams = teams.OrderByDescending(t => t.City);
-                        break;
-                    case "Name":
-                        teams = teams.OrderBy(t => t.Name);
-                        break;
-                    case "name_desc":
-                        teams = teams.OrderByDescending(t => t.Name);
-                        break;
-                    case "Division":
-                        teams = teams.OrderBy(t => t.Division);
-                        break;
-                    case "division_desc":
-                        teams = teams.OrderByDescending(t => t.Division);
-                        break;
-                    default:
-                        teams = teams.OrderBy(t => t.City);
-                        break;
-                }
-            }
-            return teams;
         }
 
         public async Task<Player> GetPPGLeaderAsync(int teamID)

@@ -22,14 +22,25 @@ namespace NBAApi.Controllers
             _teamsService = teamsService;
         }
 
+
+        /// <summary>
+        /// Gets a list of NBA Teams
+        /// </summary>
+        /// <returns>IEnumerable Teams</returns>
         // GET: api/Teams
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Team>>> GetTeams([FromQuery]string sortOrder)
+        [Produces("application/xml")]
+        public async Task<ActionResult<IEnumerable<Team>>> GetTeams()
         {
-            return (await _teamsService.GetTeamsAsync(sortOrder)).ToList();
+            return (await _teamsService.GetTeamsAsync()).ToList();
         }
 
 
+        /// <summary>
+        /// Gets a specific NBA team
+        /// </summary>
+        /// <param name="id">Team ID</param>
+        /// <returns>Team</returns>
         //GET: api/Teams/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Team>> GetTeamAsync(int id)
@@ -44,6 +55,11 @@ namespace NBAApi.Controllers
             return team;
         }
 
+        /// <summary>
+        /// Gets a teams PPG leader
+        /// </summary>
+        /// <param name="id">Team ID</param>
+        /// <returns>Player</returns>
         //GET: api/Teams/ppg/5
         [HttpGet("ppg/{id}")]
         public async Task<ActionResult<Player>> GetPointsLeaderAsync(int id)
@@ -58,6 +74,11 @@ namespace NBAApi.Controllers
             return leader;
         }
 
+        /// <summary>
+        /// Gets a teams APG leader
+        /// </summary>
+        /// <param name="id">Team ID</param>
+        /// <returns>Player</returns>
         //GET: api/Teams/apg/5
         [HttpGet("apg/{id}")]
         public async Task<ActionResult<Player>> GetAssistLeaderAsync(int id)
@@ -72,7 +93,11 @@ namespace NBAApi.Controllers
             return leader;
         }
 
-
+        /// <summary>
+        /// Gets a teams RPG leader
+        /// </summary>
+        /// <param name="id">Team ID</param>
+        /// <returns>Player</returns>
         //GET: api/Teams/rpg/5
         [HttpGet("rpg/{id}")]
         public async Task<ActionResult<Player>> GetReboundLeaderAsync(int id)
@@ -87,6 +112,11 @@ namespace NBAApi.Controllers
             return leader;
         }
 
+        /// <summary>
+        /// Gets a teams roster
+        /// </summary>
+        /// <param name="id">Team ID</param>
+        /// <returns>IEnumberable Players</returns>
         //GET: api/Teams/roster/5
         [HttpGet("roster/{id}")]
         public async Task<ActionResult<IEnumerable<Player>>> GetRosterAsync(int id)

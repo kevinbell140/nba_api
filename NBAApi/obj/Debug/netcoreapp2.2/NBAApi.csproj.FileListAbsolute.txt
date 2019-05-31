@@ -12,3 +12,5 @@ C:\Users\kebell\source\repos\NBAApi\NBAApi\obj\Debug\netcoreapp2.2\NBAApi.Assemb
 C:\Users\kebell\source\repos\NBAApi\NBAApi\obj\Debug\netcoreapp2.2\NBAApi.RazorTargetAssemblyInfo.cache
 C:\Users\kebell\source\repos\NBAApi\NBAApi\obj\Debug\netcoreapp2.2\NBAApi.dll
 C:\Users\kebell\source\repos\NBAApi\NBAApi\obj\Debug\netcoreapp2.2\NBAApi.pdb
+C:\Users\kebell\source\repos\NBAApi\NBAApi\bin\Debug\netcoreapp2.2\NBAApi.xml
+C:\Users\kebell\source\repos\NBAApi\NBAApi\obj\Debug\netcoreapp2.2\NBAApi.xml
