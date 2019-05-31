@@ -22,6 +22,10 @@ namespace NBAApi.Controllers
             _service = service;
         }
 
+        /// <summary>
+        /// Gets all news
+        /// </summary>
+        /// <returns>IENumberable News</returns>
         // GET: api/News
         [HttpGet]
         public async Task<ActionResult<IEnumerable<News>>> GetNews()
@@ -29,6 +33,11 @@ namespace NBAApi.Controllers
             return (await _service.GetNews()).ToList();
         }
 
+        /// <summary>
+        /// Gets news by specific player
+        /// </summary>
+        /// <param name="playerID"></param>
+        /// <returns>IENumberable News</returns>
         // GET: api/News/player/5
         [HttpGet("player/{playerID}")]
         public async Task<ActionResult<IEnumerable<News>>> GetNewsByPlayer(int playerID)
@@ -43,18 +52,19 @@ namespace NBAApi.Controllers
             return news.ToList();
         }
 
-        // GET: api/News/player/5
-        [HttpGet("team/{teamID}")]
-        public async Task<ActionResult<IEnumerable<News>>> GetNewsByTeam(int teamID)
-        {
-            var news = await _service.GetNewsByPlayer(teamID);
 
-            if (!news.Any())
-            {
-                return NotFound();
-            }
+        //// GET: api/News/player/5
+        //[HttpGet("team/{teamID}")]
+        //public async Task<ActionResult<IEnumerable<News>>> GetNewsByTeam(int teamID)
+        //{
+        //    var news = await _service.GetNewsByPlayer(teamID);
 
-            return news.ToList();
-        }
+        //    if (!news.Any())
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return news.ToList();
+        //}
     }
 }

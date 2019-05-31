@@ -4,6 +4,120 @@
         <name>NBAApi</name>
     </assembly>
     <members>
+        <member name="M:NBAApi.Controllers.GamesController.GetGame">
+            <summary>
+            Gets all nba games
+            </summary>
+            <returns>IENumberable Games</returns>
+        </member>
+        <member name="M:NBAApi.Controllers.GamesController.GetGame(System.Int32)">
+            <summary>
+            Gets a specific game by the game ID
+            </summary>
+            <param name="id">Game ID</param>
+            <returns>Game</returns>
+        </member>
+        <member name="M:NBAApi.Controllers.GamesController.GetGamesByTeam(System.Int32)">
+            <summary>
+            Gets the schedule for a specific team
+            </summary>
+            <param name="teamID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBAApi.Controllers.NewsController.GetNews">
+            <summary>
+            Gets all news
+            </summary>
+            <returns>IENumberable News</returns>
+        </member>
+        <member name="M:NBAApi.Controllers.NewsController.GetNewsByPlayer(System.Int32)">
+            <summary>
+            Gets news by specific player
+            </summary>
+            <param name="playerID"></param>
+            <returns>IENumberable News</returns>
+        </member>
+        <member name="M:NBAApi.Controllers.PlayerGameStatsController.GetPlayerGameStats">
+            <summary>
+            Gets all game logs
+            </summary>
+            <returns>IENumberable Logs</returns>
+        </member>
+        <member name="M:NBAApi.Controllers.PlayerGameStatsController.GetPlayerGameStatsByPlayer(System.Int32)">
+            <summary>
+            Gets game logs for a specific player
+            </summary>
+            <param name="playerID"></param>
+            <returns>IENumberable Logs</returns>
+        </member>
+        <member name="M:NBAApi.Controllers.PlayerGameStatsController.GetPlayerGameStatsByGame(System.Int32)">
+            <summary>
+            Gets game logs for a specific game
+            </summary>
+            <param name="gameID"></param>
+            <returns>IENumberable Logs</returns>
+        </member>
+        <member name="M:NBAApi.Controllers.PlayerGameStatsController.GetGameLog(System.Int32,System.Int32)">
+            <summary>
+            Gets a game log for a specific player and game
+            </summary>
+            <param name="playerID"></param>
+            <param name="gameID"></param>
+            <returns>Game log</returns>
+        </member>
+        <member name="M:NBAApi.Controllers.PlayersController.GetPlayer">
+            <summary>
+            Gets all players
+            </summary>
+            <returns>IENumberable Player</returns>
+        </member>
+        <member name="M:NBAApi.Controllers.PlayersController.GetPlayer(System.Int32)">
+            <summary>
+            Gets a specific player
+            </summary>
+            <param name="id"></param>
+            <returns>Player</returns>
+        </member>
+        <member name="M:NBAApi.Controllers.PlayersController.GetPlayer(System.String)">
+            <summary>
+            Gets a list of players matching a name input
+            </summary>
+            <param name="name"></param>
+            <returns>IENumberable Player</returns>
+        </member>
+        <member name="M:NBAApi.Controllers.PlayerSeasonStatsController.GetPlayerSeasonStats">
+            <summary>
+            Gets all season stats
+            </summary>
+            <returns>IENumberable Season Stats</returns>
+        </member>
+        <member name="M:NBAApi.Controllers.PlayerSeasonStatsController.GetPlayerSeasonStats(System.Int32)">
+            <summary>
+            Gets the season stats for a specific player
+            </summary>
+            <param name="id"></param>
+            <returns>Season stats</returns>
+        </member>
+        <member name="M:NBAApi.Controllers.PlayerSeasonStatsController.GetPlayerSeasonStats(System.String)">
+            <summary>
+            Gets the season stats for a specific player by name
+            </summary>
+            <param name="name"></param>
+            <returns>Season stats</returns>
+        </member>
+        <member name="M:NBAApi.Controllers.StandingsController.GetStandings">
+            <summary>
+            Gets nba standings
+            </summary>
+            <returns>IENumberable Standings</returns>
+        </member>
+        <member name="M:NBAApi.Controllers.StandingsController.GetStandings(System.Int32)">
+            <summary>
+            Gets a specific team's standings
+            </summary>
+            <param name="teamID"></param>
+            <returns>Standings</returns>
+        </member>
         <member name="M:NBAApi.Controllers.TeamsController.GetTeams">
             <summary>
             Gets a list of NBA Teams

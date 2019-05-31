@@ -22,6 +22,10 @@ namespace NBAApi.Controllers
             _standingsService = standingsService;
         }
 
+        /// <summary>
+        /// Gets nba standings
+        /// </summary>
+        /// <returns>IENumberable Standings</returns>
         // GET: api/Standings
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Standings>>> GetStandings()
@@ -29,6 +33,11 @@ namespace NBAApi.Controllers
             return (await _standingsService.GetStandingsAsync()).ToList();
         }
 
+        /// <summary>
+        /// Gets a specific team's standings
+        /// </summary>
+        /// <param name="teamID"></param>
+        /// <returns>Standings</returns>
         //GET: api/Standings/5
         [HttpGet("{teamID}")]
         public async Task<ActionResult<Standings>> GetStandings(int teamID)

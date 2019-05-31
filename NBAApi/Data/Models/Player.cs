@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace NBAApi.Data
 {
@@ -48,15 +49,19 @@ namespace NBAApi.Data
         public DateTime TimeStamp { get; set; } = DateTime.Now;
 
         [JsonIgnore]
+        [XmlIgnore]
         public virtual Team TeamNav { get; set; }
 
         [JsonIgnore]
+        [XmlIgnore]
         public virtual PlayerSeasonStats StatsNav { get; set; }
 
         [JsonIgnore]
+        [XmlIgnore]
         public virtual IEnumerable<PlayerGameStats> GameStatsNav { get; set; }
 
         [JsonIgnore]
+        [XmlIgnore]
         public virtual IEnumerable<News> NewsNav { get; set; }
     }
     

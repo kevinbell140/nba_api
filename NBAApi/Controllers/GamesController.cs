@@ -21,7 +21,10 @@ namespace NBAApi.Controllers
         {
             _service = service;
         }
-
+        /// <summary>
+        /// Gets all nba games
+        /// </summary>
+        /// <returns>IENumberable Games</returns>
         // GET: api/Games
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Game>>> GetGame()
@@ -29,6 +32,12 @@ namespace NBAApi.Controllers
             return (await _service.GetGamesAsync()).ToList();
         }
 
+
+        /// <summary>
+        /// Gets a specific game by the game ID
+        /// </summary>
+        /// <param name="id">Game ID</param>
+        /// <returns>Game</returns>
         // GET: api/Games/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Game>> GetGame(int id)
@@ -43,7 +52,11 @@ namespace NBAApi.Controllers
             return game;
         }
 
-
+        /// <summary>
+        /// Gets the schedule for a specific team
+        /// </summary>
+        /// <param name="teamID"></param>
+        /// <returns></returns>
         // GET: api/Games/team/5
         [HttpGet("team/{teamID}")]
         public async Task<ActionResult<IEnumerable<Game>>> GetGamesByTeam(int teamID)

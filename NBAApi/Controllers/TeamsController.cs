@@ -29,7 +29,6 @@ namespace NBAApi.Controllers
         /// <returns>IEnumerable Teams</returns>
         // GET: api/Teams
         [HttpGet]
-        [Produces("application/xml")]
         public async Task<ActionResult<IEnumerable<Team>>> GetTeams()
         {
             return (await _teamsService.GetTeamsAsync()).ToList();

@@ -22,6 +22,11 @@ namespace NBAApi.Controllers
             _service = service;
         }
 
+
+        /// <summary>
+        /// Gets all game logs
+        /// </summary>
+        /// <returns>IENumberable Logs</returns>
         // GET: api/PlayerGameStats
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PlayerGameStats>>> GetPlayerGameStats()
@@ -29,6 +34,12 @@ namespace NBAApi.Controllers
             return (await _service.GetPlayerGameStats()).ToList();
         }
 
+
+        /// <summary>
+        /// Gets game logs for a specific player
+        /// </summary>
+        /// <param name="playerID"></param>
+        /// <returns>IENumberable Logs</returns>
         // GET: api/PlayerGameStats/5
         [HttpGet("player/{playerID}")]
         public async Task<ActionResult<IEnumerable<PlayerGameStats>>> GetPlayerGameStatsByPlayer(int playerID)
@@ -43,6 +54,11 @@ namespace NBAApi.Controllers
             return playerGameStats.ToList();
         }
 
+        /// <summary>
+        /// Gets game logs for a specific game
+        /// </summary>
+        /// <param name="gameID"></param>
+        /// <returns>IENumberable Logs</returns>
         // GET: api/PlayerGameStats/5
         [HttpGet("game/{gameID}")]
         public async Task<ActionResult<IEnumerable<PlayerGameStats>>> GetPlayerGameStatsByGame(int gameID)
@@ -56,6 +72,12 @@ namespace NBAApi.Controllers
             return playerGameStats.ToList();
         }
 
+        /// <summary>
+        /// Gets a game log for a specific player and game
+        /// </summary>
+        /// <param name="playerID"></param>
+        /// <param name="gameID"></param>
+        /// <returns>Game log</returns>
         // GET: api/PlayerGameStats/5
         [HttpGet("player/{playerID}/game/{gameID}")]
         public async Task<ActionResult<PlayerGameStats>> GetGameLog(int playerID, int gameID)

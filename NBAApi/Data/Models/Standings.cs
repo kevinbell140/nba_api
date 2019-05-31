@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace NBAApi.Data.Models
 {
@@ -114,6 +115,7 @@ namespace NBAApi.Data.Models
         public DateTime TimeStamp { get; set; } = DateTime.Now;
 
         [JsonIgnore]
+        [XmlIgnore]
         public virtual Team TeamNav { get; set; }
     }
 }

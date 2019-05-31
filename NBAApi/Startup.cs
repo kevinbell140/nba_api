@@ -70,8 +70,8 @@ namespace NBAApi
                 app.UseHsts();
             }
             
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
+            //app.UseDefaultFiles();
+            //app.UseStaticFiles();
             app.UseSwagger();
             app.UseSwaggerUI(x =>
             {

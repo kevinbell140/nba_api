@@ -22,6 +22,10 @@ namespace NBAApi.Controllers
             _service = service;
         }
 
+        /// <summary>
+        /// Gets all season stats
+        /// </summary>
+        /// <returns>IENumberable Season Stats</returns>
         // GET: api/PlayerSeasonStats
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PlayerSeasonStats>>> GetPlayerSeasonStats()
@@ -29,6 +33,11 @@ namespace NBAApi.Controllers
             return (await _service.GetStatsAsync()).ToList();
         }
 
+        /// <summary>
+        /// Gets the season stats for a specific player
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Season stats</returns>
         // GET: api/PlayerSeasonStats/5
         [HttpGet("{id:int}")]
         public async Task<ActionResult<PlayerSeasonStats>> GetPlayerSeasonStats(int id)
@@ -43,6 +52,11 @@ namespace NBAApi.Controllers
             return playerSeasonStats;
         }
 
+        /// <summary>
+        /// Gets the season stats for a specific player by name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns>Season stats</returns>
         // GET: api/PlayerSeasonStats/John
         [HttpGet("{name}")]
         public async Task<ActionResult<IEnumerable<PlayerSeasonStats>>> GetPlayerSeasonStats(string name)

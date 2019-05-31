@@ -21,6 +21,10 @@ namespace NBAApi.Controllers
             _playerService = playerService;
         }
 
+        /// <summary>
+        /// Gets all players
+        /// </summary>
+        /// <returns>IENumberable Player</returns>
         // GET: api/Players
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Player>>> GetPlayer()
@@ -28,6 +32,11 @@ namespace NBAApi.Controllers
             return (await _playerService.GetPlayersAsync()).ToList();
         }
 
+        /// <summary>
+        /// Gets a specific player
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Player</returns>
         // GET: api/Players/5
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Player>> GetPlayer(int id)
@@ -42,6 +51,11 @@ namespace NBAApi.Controllers
             return player;
         }
 
+        /// <summary>
+        /// Gets a list of players matching a name input
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns>IENumberable Player</returns>
         // GET: api/Players/5
         [HttpGet("{name}")]
         public async Task<ActionResult<IEnumerable<Player>>> GetPlayer(string name)
