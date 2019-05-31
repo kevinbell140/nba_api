@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NBAApi.Data;
 using NBAApi.Data.Models;
+using NBAApi.Filters;
 using NBAApi.Services;
 
 namespace NBAApi.Controllers
@@ -29,6 +30,7 @@ namespace NBAApi.Controllers
         /// <returns>IEnumerable Teams</returns>
         // GET: api/Teams
         [HttpGet]
+        [ApiKeyFilter]
         public async Task<ActionResult<IEnumerable<Team>>> GetTeams()
         {
             return (await _teamsService.GetTeamsAsync()).ToList();
