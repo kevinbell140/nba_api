@@ -4,13 +4,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NBAApi.Data.Models
+namespace NBAApi.Data.Dtos
 {
     public class News
     {
-
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int NewsID { get; set; }
+
+        [ForeignKey("PlayerNav")]
+        public int PlayerID { get; set; }
+
+        public virtual Player PlayerNav { get; set; }
 
         public string Source { get; set; }
 
@@ -23,12 +26,6 @@ namespace NBAApi.Data.Models
         public string Url { get; set; }
 
         public string Author { get; set; }
-
-        [ForeignKey("PlayerNav")]
-        public int PlayerID { get; set; }
-
-        public virtual Player PlayerNav { get; set; }
-
-        public DateTime TimeStamp { get; set; } = DateTime.Now;
     }
 }
+

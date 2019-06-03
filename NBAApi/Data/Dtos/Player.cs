@@ -1,22 +1,20 @@
-﻿using NBAApi.Data.Models;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
 
-namespace NBAApi.Data
+namespace NBAApi.Data.Dtos
 {
     public class Player
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int PlayerID { get; set; }
 
+        public int TeamID { get; set; }
+
         public string Status { get; set; }
+
         public int Jersey { get; set; } = 0;
 
         [DisplayName("Pos")]
@@ -42,19 +40,5 @@ namespace NBAApi.Data
         public string UsaTodayHeadshotUrl { get; set; }
 
         public string PhotoUrl { get; set; }
-
-        public int TeamID { get; set; }
-
-        public DateTime TimeStamp { get; set; } = DateTime.Now;
-
-        public virtual Team TeamNav { get; set; }
-
-        public virtual PlayerSeasonStats StatsNav { get; set; }
-
-        public virtual IEnumerable<PlayerGameStats> GameStatsNav { get; set; }
-
-
-        public virtual IEnumerable<News> NewsNav { get; set; }
-        
     }
 }

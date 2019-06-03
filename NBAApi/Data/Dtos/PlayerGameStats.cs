@@ -5,19 +5,21 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NBAApi.Data.Models
+namespace NBAApi.Data.Dtos
 {
     public class PlayerGameStats
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int StatID { get; set; }
 
         [ForeignKey("PlayerNav")]
         public int PlayerID { get; set; }
 
+        public virtual Player PlayerNav { get; set; }
+
         [ForeignKey("GameNav")]
         public int GameID { get; set; }
+
+        public virtual Game GameNav { get; set; }
 
         public DateTime Updated { get; set; }
 
@@ -121,9 +123,5 @@ namespace NBAApi.Data.Models
                 return total;
             }
         }
-
-        public virtual Player PlayerNav { get; set; }
-
-        public virtual Game GameNav { get; set; }
     }
 }

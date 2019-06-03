@@ -1,18 +1,14 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
 
-namespace NBAApi.Data.Models
+namespace NBAApi.Data.Dtos
 {
     public class Standings
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [ForeignKey("TeamNav")]
         public int TeamID { get; set; }
 
@@ -111,9 +107,5 @@ namespace NBAApi.Data.Models
         [Display(Name = "GB")]
         [Column(TypeName = "decimal(18, 2)")]
         public decimal GamesBack { get; set; }
-
-        public DateTime TimeStamp { get; set; } = DateTime.Now;
-
-        public virtual Team TeamNav { get; set; }
     }
 }

@@ -1,14 +1,16 @@
-﻿using System;
+﻿using NBAApi.Data.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
-namespace NBAApi.Data.Models
+namespace NBAApi.Data.Dtos
 {
     public class Game
     {
-
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int GameID { get; set; }
 
@@ -24,9 +26,12 @@ namespace NBAApi.Data.Models
         [ForeignKey("HomeTeamNav")]
         public int? HomeTeamID { get; set; }
 
+        public virtual Team HomeTeamNav { get; set; }
 
         [ForeignKey("AwayTeamNav")]
         public int? AwayTeamID { get; set; }
+
+        public virtual Team AwayTeamNav { get; set; }
 
         public int? HomeTeamScore { get; set; }
 
@@ -44,12 +49,5 @@ namespace NBAApi.Data.Models
 
         public int? HomeTeamMoneyLine { get; set; }
 
-        public DateTime TimeStamp { get; set; } = DateTime.Now;
-
-        public virtual Team HomeTeamNav { get; set; }
-
-        public virtual Team AwayTeamNav { get; set; }
-
-        public virtual IEnumerable<PlayerGameStats> PlayerGameStatsNav { get; set; }
     }
 }

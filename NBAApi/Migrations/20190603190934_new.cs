@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NBAApi.Migrations
 {
-    public partial class newdatabase : Migration
+    public partial class @new : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -71,7 +71,6 @@ namespace NBAApi.Migrations
                 columns: table => new
                 {
                     PlayerID = table.Column<int>(nullable: false),
-                    TeamID = table.Column<int>(nullable: false),
                     Status = table.Column<string>(nullable: true),
                     Jersey = table.Column<int>(nullable: false),
                     Position = table.Column<string>(nullable: true),
@@ -82,6 +81,7 @@ namespace NBAApi.Migrations
                     BirthDate = table.Column<DateTime>(nullable: true),
                     UsaTodayHeadshotUrl = table.Column<string>(nullable: true),
                     PhotoUrl = table.Column<string>(nullable: true),
+                    TeamID = table.Column<int>(nullable: false),
                     TimeStamp = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -133,13 +133,13 @@ namespace NBAApi.Migrations
                 columns: table => new
                 {
                     NewsID = table.Column<int>(nullable: false),
-                    PlayerID = table.Column<int>(nullable: false),
                     Source = table.Column<string>(nullable: true),
                     Updated = table.Column<DateTime>(nullable: false),
                     Title = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true),
                     Url = table.Column<string>(nullable: true),
                     Author = table.Column<string>(nullable: true),
+                    PlayerID = table.Column<int>(nullable: false),
                     TimeStamp = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>

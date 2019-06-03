@@ -10,8 +10,8 @@ using NBAApi.Data;
 namespace NBAApi.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20190531202133_new-database")]
-    partial class newdatabase
+    [Migration("20190603190934_new")]
+    partial class @new
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kebell\\source\\repos\\NBAApi\\NBAApi\\NBAApi.csproj": {}
+    "C:\\Users\\kebell\\Source\\Repos\\nba_api\\NBAApi\\NBAApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kebell\\source\\repos\\NBAApi\\NBAApi\\NBAApi.csproj": {
+    "C:\\Users\\kebell\\Source\\Repos\\nba_api\\NBAApi\\NBAApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kebell\\source\\repos\\NBAApi\\NBAApi\\NBAApi.csproj",
+        "projectUniqueName": "C:\\Users\\kebell\\Source\\Repos\\nba_api\\NBAApi\\NBAApi.csproj",
         "projectName": "NBAApi",
-        "projectPath": "C:\\Users\\kebell\\source\\repos\\NBAApi\\NBAApi\\NBAApi.csproj",
+        "projectPath": "C:\\Users\\kebell\\Source\\Repos\\nba_api\\NBAApi\\NBAApi.csproj",
         "packagesPath": "C:\\Users\\kebell\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kebell\\source\\repos\\NBAApi\\NBAApi\\obj\\",
+        "outputPath": "C:\\Users\\kebell\\Source\\Repos\\nba_api\\NBAApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
