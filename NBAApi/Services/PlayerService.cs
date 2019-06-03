@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NBAApi.Data;
+using NBAApi.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

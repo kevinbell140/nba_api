@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NBAApi.Data;
+using NBAApi.Data.Dtos;
+using NBAApi.Data.Models;
 using NBAApi.Services;
 
 namespace NBAApi.Controllers
@@ -15,59 +18,65 @@ namespace NBAApi.Controllers
     public class PlayersController : ControllerBase
     {
         private readonly PlayerService _playerService;
+        private readonly IMapper _mapper;
 
-        public PlayersController(PlayerService playerService)
+        public PlayersController(PlayerService playerService, IMapper mapper)
         {
             _playerService = playerService;
+            _mapper = mapper;
         }
 
         /// <summary>
         /// Gets all players
         /// </summary>
-        /// <returns>IENumberable Player</returns>
+        /// <returns>IENumberable PlayerDto</returns>
         // GET: api/Players
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Player>>> GetPlayer()
+        public async Task<ActionResult<IEnumerable<PlayerDto>>> GetPlayer()
         {
-            return (await _playerService.GetPlayersAsync()).ToList();
+            var players = await _playerService.GetPlayersAsync();
+            if (!players.Any())
+            {
+                return NotFound();
+            }
+            var playerDto = _mapper.Map<IEnumerable<PlayerDto>>(players);
+            return Ok(playerDto);
         }
 
         /// <summary>
         /// Gets a specific player
         /// </summary>
         /// <param name="id"></param>
-        /// <returns>Player</returns>
+        /// <returns>PlayerDto</returns>
         // GET: api/Players/5
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<Player>> GetPlayer(int id)
+        public async Task<ActionResult<PlayerDto>> GetPlayer(int id)
         {
             var player = await _playerService.GetPlayerByIDAsync(id);
-
             if (player == null)
             {
                 return NotFound();
             }
-
-            return player;
+            var playerDto = _mapper.Map<PlayerDto>(player);
+            return Ok(playerDto);
         }
 
         /// <summary>
         /// Gets a list of players matching a name input
         /// </summary>
         /// <param name="name"></param>
-        /// <returns>IENumberable Player</returns>
+        /// <returns>IENumberable PlayerDto</returns>
         // GET: api/Players/5
         [HttpGet("{name}")]
-        public async Task<ActionResult<IEnumerable<Player>>> GetPlayer(string name)
+        public async Task<ActionResult<IEnumerable<PlayerDto>>> GetPlayer(string name)
         {
-            var player = await _playerService.GetPlayerByNameAsync(name);
-
-            if (player == null)
+            var players = await _playerService.GetPlayerByNameAsync(name);
+            if (!players.Any())
             {
                 return NotFound();
             }
-
-            return player.ToList();
+            var playersDto = _mapper.Map<IEnumerable<PlayerDto>>(players);
+            return Ok(playersDto);
         }
     }
 }

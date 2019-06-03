@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NBAApi.Data;
+using NBAApi.Data.Dtos;
 using NBAApi.Data.Models;
 using NBAApi.Services;
 
@@ -16,21 +18,29 @@ namespace NBAApi.Controllers
     public class PlayerSeasonStatsController : ControllerBase
     {
         private readonly PlayerSeasonStatsService _service;
+        private readonly IMapper _mapper;
 
-        public PlayerSeasonStatsController(PlayerSeasonStatsService service)
+        public PlayerSeasonStatsController(PlayerSeasonStatsService service, IMapper mapper)
         {
             _service = service;
+            _mapper = mapper;
         }
 
         /// <summary>
         /// Gets all season stats
         /// </summary>
         /// <returns>IENumberable Season Stats</returns>
-        // GET: api/PlayerSeasonStats
+        // GET: api/PlayerSeasonStatsDto
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PlayerSeasonStats>>> GetPlayerSeasonStats()
+        public async Task<ActionResult<IEnumerable<PlayerSeasonStatsDto>>> GetPlayerSeasonStats()
         {
-            return (await _service.GetStatsAsync()).ToList();
+            var stats = await _service.GetStatsAsync();
+            if (!stats.Any())
+            {
+                return NotFound();
+            }
+            var statsDto = _mapper.Map<IEnumerable<PlayerSeasonStatsDto>>(stats);
+            return Ok(statsDto);
         }
 
         /// <summary>
@@ -38,18 +48,17 @@ namespace NBAApi.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Season stats</returns>
-        // GET: api/PlayerSeasonStats/5
+        // GET: api/PlayerSeasonStatsDto/5
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<PlayerSeasonStats>> GetPlayerSeasonStats(int id)
+        public async Task<ActionResult<PlayerSeasonStatsDto>> GetPlayerSeasonStats(int id)
         {
-            var playerSeasonStats = await _service.GetStatsByPlayerAsync(id);
-
-            if (playerSeasonStats == null)
+            var stats = await _service.GetStatsByPlayerAsync(id);
+            if (stats == null)
             {
                 return NotFound();
             }
-
-            return playerSeasonStats;
+            var statsDto = _mapper.Map<PlayerGameStatsDto>(stats);
+            return Ok(statsDto);
         }
 
         /// <summary>
@@ -57,18 +66,17 @@ namespace NBAApi.Controllers
         /// </summary>
         /// <param name="name"></param>
         /// <returns>Season stats</returns>
-        // GET: api/PlayerSeasonStats/John
+        // GET: api/PlayerSeasonStatsDto/John
         [HttpGet("{name}")]
-        public async Task<ActionResult<IEnumerable<PlayerSeasonStats>>> GetPlayerSeasonStats(string name)
+        public async Task<ActionResult<IEnumerable<PlayerSeasonStatsDto>>> GetPlayerSeasonStats(string name)
         {
-            var playerSeasonStats = await _service.GetStatsByPlayerAsync(name);
-
-            if (playerSeasonStats == null)
+            var stats = await _service.GetStatsByPlayerAsync(name);
+            if (!stats.Any())
             {
                 return NotFound();
             }
-
-            return playerSeasonStats.ToList();
+            var statsDto = _mapper.Map<IEnumerable<PlayerGameStatsDto>>(stats);
+            return Ok(statsDto);
         }
     }
 }

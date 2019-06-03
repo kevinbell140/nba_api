@@ -16,7 +16,7 @@ namespace NBAApi.Filters
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
-                var apiKey = context.HttpContext.Request.Headers["API-KEY"];
+                var apiKey = context.HttpContext.Request.Headers["x-api-key"];
                 if (apiKey != "1111")
                 {
                     context.Result = new StatusCodeResult(401);

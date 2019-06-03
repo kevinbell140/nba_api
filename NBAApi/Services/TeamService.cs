@@ -70,13 +70,13 @@ namespace NBAApi.Services
 
         //public async Task FetchAsync()
         //{
-        //    List<Team> teams = await _dataService.FetchTeamsAsync();
-        //    List<Team> created = new List<Team>();
-        //    List<Team> updated = new List<Team>();
+        //    List<TeamDto> teams = await _dataService.FetchTeamsAsync();
+        //    List<TeamDto> created = new List<TeamDto>();
+        //    List<TeamDto> updated = new List<TeamDto>();
 
-        //    foreach (Team t in teams)
+        //    foreach (TeamDto t in teams)
         //    {
-        //        if (!await _context.Team.AnyAsync(o => o.TeamID == t.TeamID))
+        //        if (!await _context.TeamDto.AnyAsync(o => o.TeamID == t.TeamID))
         //        {
         //            created.Add(t);
         //        }

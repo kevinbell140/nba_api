@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NBAApi.Data.Dtos
 {
-    public class Standings
+    public class StandingsDto
     {
         [ForeignKey("TeamNav")]
         public int TeamID { get; set; }

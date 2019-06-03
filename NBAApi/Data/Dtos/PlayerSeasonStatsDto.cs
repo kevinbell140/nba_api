@@ -7,14 +7,12 @@ using System.Threading.Tasks;
 
 namespace NBAApi.Data.Dtos
 {
-    public class PlayerSeasonStats
+    public class PlayerSeasonStatsDto
     {
         public int StatID { get; set; }
 
         [ForeignKey("PlayerNav")]
         public int PlayerID { get; set; }
-
-        public virtual Player PlayNav { get; set; }
 
         public int Games { get; set; }
 

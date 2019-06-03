@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NBAApi.Data;
+using NBAApi.Data.Dtos;
 using NBAApi.Data.Models;
 using NBAApi.Services;
 
@@ -16,21 +18,30 @@ namespace NBAApi.Controllers
     public class NewsController : ControllerBase
     {
         private readonly NewsService _service;
+        private readonly IMapper _mapper;
 
-        public NewsController(NewsService service)
+        public NewsController(NewsService service, IMapper mapper)
         {
             _service = service;
+            _mapper = mapper;
         }
 
         /// <summary>
         /// Gets all news
         /// </summary>
         /// <returns>IENumberable News</returns>
-        // GET: api/News
+        // GET: api/NewsDto
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<News>>> GetNews()
+        public async Task<ActionResult<IEnumerable<NewsDto>>> GetNews()
         {
-            return (await _service.GetNews()).ToList();
+            var news = await _service.GetNews();
+            if (!news.Any())
+            {
+                return NotFound();
+            }
+            var newsDto = _mapper.Map<IEnumerable<NewsDto>>(news);
+            return Ok(newsDto);
+
         }
 
         /// <summary>
@@ -38,33 +49,17 @@ namespace NBAApi.Controllers
         /// </summary>
         /// <param name="playerID"></param>
         /// <returns>IENumberable News</returns>
-        // GET: api/News/player/5
+        // GET: api/NewsDto/player/5
         [HttpGet("player/{playerID}")]
-        public async Task<ActionResult<IEnumerable<News>>> GetNewsByPlayer(int playerID)
+        public async Task<ActionResult<IEnumerable<NewsDto>>> GetNewsByPlayer(int playerID)
         {
             var news = await _service.GetNewsByPlayer(playerID);
-
-            if (news == null)
+            if (!news.Any())
             {
                 return NotFound();
             }
-
-            return news.ToList();
+            var newsDto = _mapper.Map<IEnumerable<NewsDto>>(news);
+            return Ok(newsDto);
         }
-
-
-        //// GET: api/News/player/5
-        //[HttpGet("team/{teamID}")]
-        //public async Task<ActionResult<IEnumerable<News>>> GetNewsByTeam(int teamID)
-        //{
-        //    var news = await _service.GetNewsByPlayer(teamID);
-
-        //    if (!news.Any())
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return news.ToList();
-        //}
     }
 }

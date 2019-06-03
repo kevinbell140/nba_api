@@ -9,7 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace NBAApi.Data
+namespace NBAApi.Data.Models
 {
     public class Player
     {

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace NBAApi.Data.Dtos
 {
-    public class Team
+    public class TeamDto
     {
         public int TeamID { get; set; }
         public string Key { get; set; }

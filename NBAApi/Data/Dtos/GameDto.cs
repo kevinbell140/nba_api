@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 
 namespace NBAApi.Data.Dtos
 {
-    public class Game
+    public class GameDto
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int GameID { get; set; }
@@ -26,12 +26,9 @@ namespace NBAApi.Data.Dtos
         [ForeignKey("HomeTeamNav")]
         public int? HomeTeamID { get; set; }
 
-        public virtual Team HomeTeamNav { get; set; }
-
         [ForeignKey("AwayTeamNav")]
         public int? AwayTeamID { get; set; }
 
-        public virtual Team AwayTeamNav { get; set; }
 
         public int? HomeTeamScore { get; set; }
 
@@ -48,6 +45,5 @@ namespace NBAApi.Data.Dtos
         public int? AwayTeamMoneyLine { get; set; }
 
         public int? HomeTeamMoneyLine { get; set; }
-
     }
 }

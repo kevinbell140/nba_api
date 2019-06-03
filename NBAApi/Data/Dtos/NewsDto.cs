@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace NBAApi.Data.Dtos
 {
-    public class News
+    public class NewsDto
     {
         public int NewsID { get; set; }
 
         [ForeignKey("PlayerNav")]
         public int PlayerID { get; set; }
-
-        public virtual Player PlayerNav { get; set; }
 
         public string Source { get; set; }
 

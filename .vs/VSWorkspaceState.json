@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\NBAApi"
+    "\\NBAApi",
+    "\\NBAApi\\Data",
+    "\\NBAApi\\Data\\Dtos",
+    "\\NBAApi\\Data\\Models"
   ],
   "PreviewInSolutionExplorer": false
 }

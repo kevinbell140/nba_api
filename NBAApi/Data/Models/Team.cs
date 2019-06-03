@@ -28,7 +28,6 @@ namespace NBAApi.Data.Models
 
         public DateTime TimeStamp { get; set; } = DateTime.Now;
 
-        [Display(Name = "Team")]
         public string FullName
         {
             get

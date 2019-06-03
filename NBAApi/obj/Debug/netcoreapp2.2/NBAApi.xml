@@ -14,8 +14,8 @@
             <summary>
             Gets a specific game by the game ID
             </summary>
-            <param name="id">Game ID</param>
-            <returns>Game</returns>
+            <param name="id">GameDto ID</param>
+            <returns>GameDto</returns>
         </member>
         <member name="M:NBAApi.Controllers.GamesController.GetGamesByTeam(System.Int32)">
             <summary>
@@ -63,27 +63,27 @@
             </summary>
             <param name="playerID"></param>
             <param name="gameID"></param>
-            <returns>Game log</returns>
+            <returns>GameDto log</returns>
         </member>
         <member name="M:NBAApi.Controllers.PlayersController.GetPlayer">
             <summary>
             Gets all players
             </summary>
-            <returns>IENumberable Player</returns>
+            <returns>IENumberable PlayerDto</returns>
         </member>
         <member name="M:NBAApi.Controllers.PlayersController.GetPlayer(System.Int32)">
             <summary>
             Gets a specific player
             </summary>
             <param name="id"></param>
-            <returns>Player</returns>
+            <returns>PlayerDto</returns>
         </member>
         <member name="M:NBAApi.Controllers.PlayersController.GetPlayer(System.String)">
             <summary>
             Gets a list of players matching a name input
             </summary>
             <param name="name"></param>
-            <returns>IENumberable Player</returns>
+            <returns>IENumberable PlayerDto</returns>
         </member>
         <member name="M:NBAApi.Controllers.PlayerSeasonStatsController.GetPlayerSeasonStats">
             <summary>
@@ -128,35 +128,35 @@
             <summary>
             Gets a specific NBA team
             </summary>
-            <param name="id">Team ID</param>
-            <returns>Team</returns>
+            <param name="id">TeamDto ID</param>
+            <returns>TeamDto</returns>
         </member>
         <member name="M:NBAApi.Controllers.TeamsController.GetPointsLeaderAsync(System.Int32)">
             <summary>
             Gets a teams PPG leader
             </summary>
-            <param name="id">Team ID</param>
-            <returns>Player</returns>
+            <param name="id">TeamDto ID</param>
+            <returns>PlayerDto</returns>
         </member>
         <member name="M:NBAApi.Controllers.TeamsController.GetAssistLeaderAsync(System.Int32)">
             <summary>
             Gets a teams APG leader
             </summary>
-            <param name="id">Team ID</param>
-            <returns>Player</returns>
+            <param name="id">TeamDto ID</param>
+            <returns>PlayerDto</returns>
         </member>
         <member name="M:NBAApi.Controllers.TeamsController.GetReboundLeaderAsync(System.Int32)">
             <summary>
             Gets a teams RPG leader
             </summary>
-            <param name="id">Team ID</param>
-            <returns>Player</returns>
+            <param name="id">TeamDto ID</param>
+            <returns>PlayerDto</returns>
         </member>
         <member name="M:NBAApi.Controllers.TeamsController.GetRosterAsync(System.Int32)">
             <summary>
             Gets a teams roster
             </summary>
-            <param name="id">Team ID</param>
+            <param name="id">TeamDto ID</param>
             <returns>IEnumberable Players</returns>
         </member>
     </members>
